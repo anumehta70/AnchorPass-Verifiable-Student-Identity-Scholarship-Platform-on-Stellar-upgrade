@@ -9,11 +9,13 @@ import { StudentDashboardPage } from "./pages/StudentDashboardPage.tsx";
 import { VerifyCredentialPage } from "./pages/VerifyCredentialPage.tsx";
 import { NotFoundPage } from "./pages/NotFoundPage.tsx";
 import { DirectoryPage } from "./pages/DirectoryPage.tsx";
+import { OnboardingModal } from "./components/OnboardingModal.tsx";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-paper">
+    <div className="min-h-screen bg-paper text-ink selection:bg-institution/20">
       <Navbar />
+      <OnboardingModal />
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
