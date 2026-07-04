@@ -82,6 +82,7 @@ export function StudentDashboardPage() {
       <h1 className="font-display text-3xl font-semibold text-ink">Student Dashboard</h1>
       <p className="mt-1 font-mono text-xs text-ink/50">{address}</p>
           <a href={`https://stellar.expert/explorer/testnet/account/${address}`} target="_blank" rel="noreferrer" className="text-xs text-institution hover:underline mt-1 inline-block">View on Explorer</a>
+          <a href={`https://stellar.expert/explorer/testnet/account/${address}`} target="_blank" rel="noreferrer" className="text-xs text-institution hover:underline mt-1 inline-block">View on Explorer</a>
 
       {loading && <LoadingSpinner label="Loading your scholarships" />}
       {error && (
