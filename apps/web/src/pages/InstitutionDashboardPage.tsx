@@ -7,6 +7,7 @@ import { ErrorAlert } from "../components/ErrorAlert.tsx";
 import { EmptyState } from "../components/EmptyState.tsx";
 import { CreateScholarshipModal } from "../components/CreateScholarshipModal.tsx";
 import { IssueCredentialModal } from "../components/IssueCredentialModal.tsx";
+import { AssignStudentModal } from "../components/AssignStudentModal.tsx";
 
 export function InstitutionDashboardPage() {
   const { address, connect, role, setRole } = useWallet();
@@ -15,6 +16,7 @@ export function InstitutionDashboardPage() {
   const [error, setError] = useState<string | null>(null);
   const [showCreate, setShowCreate] = useState(false);
   const [issueFor, setIssueFor] = useState<Scholarship | null>(null);
+  const [assignFor, setAssignFor] = useState<Scholarship | null>(null);
 
   const load = useCallback(async () => {
     if (!address) return;
@@ -87,6 +89,8 @@ export function InstitutionDashboardPage() {
               scholarship={s}
               onAction={() => setIssueFor(s)}
               actionLabel="Issue Credential"
+              onSecondaryAction={() => setAssignFor(s)}
+              secondaryActionLabel="Assign Student"
             />
           ))}
         </div>
@@ -95,8 +99,7 @@ export function InstitutionDashboardPage() {
       {showCreate && (
         <CreateScholarshipModal
           institutionWallet={address}
-          onClose={() => setShowCreate(false)}
-          onCreated={() => {
+          onClose={() => {
             setShowCreate(false);
             load();
           }}
@@ -107,7 +110,20 @@ export function InstitutionDashboardPage() {
         <IssueCredentialModal
           scholarship={issueFor}
           institutionWallet={address}
-          onClose={() => setIssueFor(null)}
+          onClose={() => {
+            setIssueFor(null);
+            load();
+          }}
+        />
+      )}
+
+      {assignFor && (
+        <AssignStudentModal
+          scholarship={assignFor}
+          onClose={() => {
+            setAssignFor(null);
+            load();
+          }}
         />
       )}
     </div>

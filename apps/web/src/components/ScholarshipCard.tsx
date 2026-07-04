@@ -5,9 +5,20 @@ interface Props {
   onAction?: () => void;
   actionLabel?: string;
   actionDisabled?: boolean;
+  onSecondaryAction?: () => void;
+  secondaryActionLabel?: string;
+  secondaryActionDisabled?: boolean;
 }
 
-export function ScholarshipCard({ scholarship, onAction, actionLabel, actionDisabled }: Props) {
+export function ScholarshipCard({
+  scholarship,
+  onAction,
+  actionLabel,
+  actionDisabled,
+  onSecondaryAction,
+  secondaryActionLabel,
+  secondaryActionDisabled,
+}: Props) {
   const claimedCount = scholarship.assignments.filter((a) => a.claimed).length;
   const seatsLeft = scholarship.totalSeats - scholarship.assignments.length;
   const deadline = new Date(scholarship.deadline);
@@ -53,15 +64,26 @@ export function ScholarshipCard({ scholarship, onAction, actionLabel, actionDisa
         </dl>
       </div>
 
-      {onAction && (
-        <button
-          onClick={onAction}
-          disabled={actionDisabled || seatsLeft <= 0 || isExpired}
-          className="mt-5 w-full rounded-lg bg-institution py-2.5 font-body text-sm font-semibold text-paper transition hover:bg-ink disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          {actionLabel ?? "View"}
-        </button>
-      )}
+      <div className="mt-5 flex flex-col gap-2">
+        {onSecondaryAction && (
+          <button
+            onClick={onSecondaryAction}
+            disabled={secondaryActionDisabled || seatsLeft <= 0 || isExpired}
+            className="w-full rounded-lg bg-ink/5 py-2.5 font-body text-sm font-semibold text-ink transition hover:bg-ink/10 disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            {secondaryActionLabel ?? "Assign"}
+          </button>
+        )}
+        {onAction && (
+          <button
+            onClick={onAction}
+            disabled={actionDisabled || seatsLeft <= 0 || isExpired}
+            className="w-full rounded-lg bg-institution py-2.5 font-body text-sm font-semibold text-paper transition hover:bg-ink disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            {actionLabel ?? "View"}
+          </button>
+        )}
+      </div>
     </div>
   );
 }
