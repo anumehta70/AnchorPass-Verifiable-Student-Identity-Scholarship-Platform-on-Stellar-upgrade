@@ -100,6 +100,27 @@ export function InstitutionDashboardPage() {
           </button>
         </div>
       </div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+        <div className="rounded-xl border border-ink/10 bg-paper p-5 shadow-sm">
+          <p className="text-sm font-body text-ink/60">Active Scholarships</p>
+          <p className="mt-1 font-display text-3xl font-semibold text-institution">
+            {scholarships.length}
+          </p>
+        </div>
+        <div className="rounded-xl border border-ink/10 bg-paper p-5 shadow-sm">
+          <p className="text-sm font-body text-ink/60">Total Seats Available</p>
+          <p className="mt-1 font-display text-3xl font-semibold text-institution">
+            {scholarships.reduce((acc, s) => acc + s.totalSeats, 0)}
+          </p>
+        </div>
+        <div className="rounded-xl border border-ink/10 bg-paper p-5 shadow-sm">
+          <p className="text-sm font-body text-ink/60">Total Budget Managed</p>
+          <p className="mt-1 font-display text-3xl font-semibold text-institution">
+            {scholarships.reduce((acc, s) => acc + s.amount, 0).toLocaleString()} XLM
+          </p>
+        </div>
+      </div>
+
       <div className="mb-8 rounded-xl bg-ink/5 p-5 border border-ink/10">
         <h3 className="font-display font-semibold text-ink">Quick Tutorial</h3>
         <p className="mt-2 font-body text-sm text-ink/70 leading-relaxed">
