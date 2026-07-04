@@ -1,0 +1,14 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "env": {
+    "VITE_API_URL": "@anchorpass-api-url",
+    "VITE_SOROBAN_CONTRACT_ID": "@anchorpass-contract-id",
+    "VITE_SOROBAN_RPC_URL": "@anchorpass-rpc-url",
+    "VITE_STELLAR_NETWORK_PASSPHRASE": "@anchorpass-network-passphrase",
+    "VITE_POSTHOG_KEY": "@anchorpass-posthog-key"
+  }
+}
