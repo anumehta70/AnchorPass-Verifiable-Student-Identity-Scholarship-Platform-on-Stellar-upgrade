@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 import { useWallet } from "../hooks/useWallet.tsx";
 import { api } from "../lib/api.ts";
 import { ErrorAlert } from "./ErrorAlert.tsx";
-import { nativeToScVal } from "@stellar/stellar-sdk";
+import { nativeToScVal, xdr } from "@stellar/stellar-sdk";
 import { prepareContractCall, submitContractTx } from "../lib/soroban";
 import type { ReactNode } from "react";
 
@@ -28,7 +28,17 @@ export function CreateScholarshipModal({ institutionWallet, onClose, onCreated }
     setSubmitting(true);
     setError(null);
     try {
-      const deadlineSecs = Math.floor(new Date(deadline).getTime() / 1000);
+      const deadlineSecs = BigInt(Math.floor(new Date(deadline).getTime() / 1000));
+      const amountVal = BigInt(Math.floor(parseFloat(amount) * 1e7));
+
+      // Build i128 manually — nativeToScVal mishandles i128/u64 types
+      const i128Val = xdr.ScVal.scvI128(
+        new xdr.Int128Parts({
+          lo: new xdr.Uint64(amountVal & BigInt("0xFFFFFFFFFFFFFFFF")),
+          hi: new xdr.Int64(amountVal >> BigInt(64)),
+        })
+      );
+      const u64Val = xdr.ScVal.scvU64(new xdr.Uint64(deadlineSecs));
 
       const unsignedXdr = await prepareContractCall(
         institutionWallet,
@@ -36,9 +46,9 @@ export function CreateScholarshipModal({ institutionWallet, onClose, onCreated }
         [
           nativeToScVal(institutionWallet, { type: "address" }),
           nativeToScVal(title, { type: "string" }),
-          nativeToScVal(BigInt(Math.floor(parseFloat(amount) * 1e7)), { type: "i128" }),
+          i128Val,
           nativeToScVal(Number(totalSeats), { type: "u32" }),
-          nativeToScVal(BigInt(deadlineSecs), { type: "u64" }),
+          u64Val,
         ]
       );
 
