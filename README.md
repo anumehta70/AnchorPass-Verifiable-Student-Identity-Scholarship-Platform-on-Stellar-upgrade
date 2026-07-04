@@ -77,59 +77,6 @@ To collect comprehensive product feedback, we utilized a Google Form and aggrega
 
 
 ---
-
-## 🛠️ Tech Stack & Architecture
-
-- **Frontend Stack:** React 18, Vite, TypeScript, Tailwind CSS
-- **Wallet Connection:** Freighter via `@creit.tech/stellar-wallets-kit`
-- **Backend Stack:** Node.js, Express, TypeScript, Prisma, PostgreSQL (Supabase)
-- **Blockchain:** Stellar Testnet, Soroban (Rust)
-- **Storage:** IPFS via Pinata for JSON metadata
-
-## 📝 Smart Contract Functions
-
-| Function | Access | Description |
-|---|---|---|
-| `register_institution(wallet, name)` | Institution | Register on-chain as an institution |
-| `create_scholarship(id, title, amount, seats, deadline)` | Institution | Create a scholarship campaign |
-| `assign_student(scholarship_id, student_wallet)` | Institution | Assign an eligible student |
-| `claim_scholarship(scholarship_id, student_wallet)` | Student | Claim an assigned scholarship |
-| `issue_credential(student, title, metadata_hash)` | Institution | Issue a verifiable credential |
-| `verify_credential(credential_id)` | Anyone | Read credential state from chain |
-| `revoke_credential(credential_id)` | Owning institution | Permanently revoke a credential |
-
----
-
-## 💻 Local Setup & Development
-
-To run AnchorPass locally, ensure you have Node.js and npm installed.
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-.git
-   cd AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-
-   ```
-
-2. **Start the API Server (Backend):**
-   ```bash
-   cd apps/api
-   npm install
-   npm run dev
-   ```
-
-3. **Start the Frontend Web App:**
-   Open a new terminal window:
-   ```bash
-   cd apps/web
-   npm install
-   npm run dev
-   ```
-
-*(Ensure you connect the Freighter Wallet browser extension and set it to Stellar Testnet).*
-
----
-*AnchorPass was built for the Stellar Community Fund. License: MIT.*
-
 ### 🔗 54 Onboarded Users & Cryptographic Proofs
 
 | # | Name | Role | Wallet Address | Tx Hash |
@@ -188,3 +135,55 @@ To run AnchorPass locally, ensure you have Node.js and npm installed.
 | 52 | University of Isha Gupta | Institution | ``GAZNMWXFONDOBBTALQGYCBW5JFP2AYHSIATKAQCFDSMG6VJFULGER2O2`` | [View Tx](https://stellar.expert/explorer/testnet/tx/d15270120011773fce72eebefd752bd7fc7cbe229c431c4d7681244d8063aab2) |
 | 53 | University of Aditya Singh | Institution | ``GAC4XCCWQ4DAE2VOCNUMEYGJQUWEIOTNR6M4IGISXJDLYE72MK2LNZSX`` | [View Tx](https://stellar.expert/explorer/testnet/tx/accda1b03aeeb752af9caf0bc7aab08c55bd83d8489c4ed45e0c6c74071e0d20) |
 | 54 | University of Sai Bose | Institution | ``GCC2PWQTGDOS477SIAYBULCUNBNWERRHEHJUIOIY4JGHMGVH2RQ7JIFI`` | [View Tx](https://stellar.expert/explorer/testnet/tx/acacd042a8c02346330260039239df50bc95f1e7a93abf96f42715384e3e4376) |
+
+
+## 🛠️ Tech Stack & Architecture
+
+- **Frontend Stack:** React 18, Vite, TypeScript, Tailwind CSS
+- **Wallet Connection:** Freighter via `@creit.tech/stellar-wallets-kit`
+- **Backend Stack:** Node.js, Express, TypeScript, Prisma, PostgreSQL (Supabase)
+- **Blockchain:** Stellar Testnet, Soroban (Rust)
+- **Storage:** IPFS via Pinata for JSON metadata
+
+## 📝 Smart Contract Functions
+
+| Function | Access | Description |
+|---|---|---|
+| `register_institution(wallet, name)` | Institution | Register on-chain as an institution |
+| `create_scholarship(id, title, amount, seats, deadline)` | Institution | Create a scholarship campaign |
+| `assign_student(scholarship_id, student_wallet)` | Institution | Assign an eligible student |
+| `claim_scholarship(scholarship_id, student_wallet)` | Student | Claim an assigned scholarship |
+| `issue_credential(student, title, metadata_hash)` | Institution | Issue a verifiable credential |
+| `verify_credential(credential_id)` | Anyone | Read credential state from chain |
+| `revoke_credential(credential_id)` | Owning institution | Permanently revoke a credential |
+
+---
+
+## 💻 Local Setup & Development
+
+To run AnchorPass locally, ensure you have Node.js and npm installed.
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-.git
+   cd AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-
+   ```
+
+2. **Start the API Server (Backend):**
+   ```bash
+   cd apps/api
+   npm install
+   npm run dev
+   ```
+
+3. **Start the Frontend Web App:**
+   Open a new terminal window:
+   ```bash
+   cd apps/web
+   npm install
+   npm run dev
+   ```
+
+*(Ensure you connect the Freighter Wallet browser extension and set it to Stellar Testnet).*
+
+---
