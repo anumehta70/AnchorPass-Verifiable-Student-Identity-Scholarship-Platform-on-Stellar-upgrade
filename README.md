@@ -52,18 +52,12 @@ We actively collected user feedback through Google Forms to validate the MVP and
 
 | User ID | Name | Email | Wallet Address | Feedback Summary | Improvement Made | Git Commit ID |
 |---|---|---|---|---|---|---|
-| 1 | Rahul Sharma | rahulsharma992@gmail.com | `GCDAVZHHQGDDBQIAWYM3ZWZ3NEY34GBIDXQVA4F24SO7FUGOMJFOX5H3` | Missing mobile push notifications. | Planned for v2 push notifications | N/A |
-| 2 | Priya Patel | priyapatel821@gmail.com | `GA2SDBMFAQW4JLCXJU2QU2P2YYQMTMNFCPMJ6OL6GTOKOOYC6ICUGRLB` | I'd like more analytics features. | Planned for v2 analytics | N/A |
 | 3 | Amit Kumar | amitkumar445@gmail.com | `GDZJYT7KL4BLZ75ONELN5KQRHNBMCI2NSF7DR2ALHT2BWG2VM2WBZ46Q` | Faster loading times on mobile devices. | Optimised layout spacing for mobile rendering | [Commit 17fe083](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-/commit/17fe083) |
 | 4 | Neha Singh | nehasingh718@gmail.com | `GCWVS2S2OU2VTXRWK2ICSDPDOHQRCABGXVBLOKSKP53BB5LSC3YB4MRU` | Needs a detailed tutorial section. | Added quick tutorial to institution dashboard | [Commit c8864bb](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-/commit/c8864bb) |
-| 5 | Vikram Reddy | vikramreddy119@gmail.com | `GBVONW2MV6VWT22JLEQLVSTMYJTZPRZGXYYM74P5J67E6SJXJITU2VF7` | Allow custom branding for institutions. | Custom branding in v2 | N/A |
 | 6 | Anjali Desai | anjalidesai905@gmail.com | `GDCA4TRX4ZLDN2PZUVLMN7ZIYW57Q2F5O3TSKZBFCEV2HBRMLHHTT3CB` | Improve mobile layout. | Tweaked mobile layout breakpoints | [Commit 17fe083](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-/commit/17fe083) |
-| 7 | Rohan Gupta | rohangupta337@gmail.com | `GAZGTGZBOWC774WTPHFAC37BY2YOLXM747ID5N43BHPHRROP7HTWHBOJ` | Email notifications for scholarships. | Notification server needed | N/A |
 | 8 | Sneha Joshi | snehajoshi552@gmail.com | `GD2X7FGKQXYNROX3HBYKGXMOK6IEPEHRSFNWKWOZOGEAPRSCINHX5IS3` | Allow PDF downloads. | Added PDF download functionality | [Commit c8864bb](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-/commit/c8864bb) |
 | 9 | Arjun Verma | arjunverma214@gmail.com | `GAWBBCB7ACOYV5U45LHDDL5FYJKPRQQ6DHORJJRDBBYCOLNEWQFSODQJ` | Include a public directory. | Implemented public directory portal | [Commit 54bf2bb](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-/commit/54bf2bb) |
 | 10 | Kavita Nair | kavitanair689@gmail.com | `GBYZU5PVYTSLBDEJ6LWYDZFK5XN7VWEHDJI2SFNEXHUIO6ITNPSVKFT6` | More color themes. | Enabled core color-scheme theming support | [Commit e929541](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-/commit/e929541) |
-| 11 | Manish Tiwari | manishtiwari774@gmail.com | `GARII7MALUOOVLZN7BUBWFLALCCFWBDK66KDCCVVA5HU6I7K2Q7TBGUS` | Add a developer portal. | Dev SDK planned | N/A |
-| 12 | Pooja Mehta | poojamehta881@gmail.com | `GA5SSRO6GKANJWSTTQDFPWGBDANFQATE2QX2PYFSFJOIXEL7IJ4YEB5A` | More integrations with university systems. | B2B integration in v2 | N/A |
 
 ### Proof of Transactions
 | User ID | Name | Email | Role | Wallet Address | Transaction Hash (Proof) |
