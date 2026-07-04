@@ -103,6 +103,10 @@ export function InstitutionDashboardPage() {
             setShowCreate(false);
             load();
           }}
+          onCreated={() => {
+            setShowCreate(false);
+            load();
+          }}
         />
       )}
 

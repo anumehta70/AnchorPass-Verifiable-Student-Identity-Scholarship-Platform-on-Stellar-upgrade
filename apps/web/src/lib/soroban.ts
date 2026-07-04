@@ -1,4 +1,4 @@
-import { rpc, TransactionBuilder, Networks, Contract, nativeToScVal, xdr } from "@stellar/stellar-sdk";
+import { rpc, TransactionBuilder, Networks, Contract, xdr } from "@stellar/stellar-sdk";
 
 const RPC_URL = import.meta.env.VITE_SOROBAN_RPC_URL || "https://soroban-testnet.stellar.org";
 const CONTRACT_ID = import.meta.env.VITE_SOROBAN_CONTRACT_ID;
@@ -40,7 +40,7 @@ export async function submitContractTx(signedXdr: string): Promise<string> {
   const sendResponse = await server.sendTransaction(tx);
   
   if (sendResponse.status === "ERROR") {
-    throw new Error(`Transaction failed: ${JSON.stringify(sendResponse.errorResultXdr)}`);
+    throw new Error(`Transaction failed: ${JSON.stringify(sendResponse.errorResult)}`);
   }
 
   // Poll for the result
