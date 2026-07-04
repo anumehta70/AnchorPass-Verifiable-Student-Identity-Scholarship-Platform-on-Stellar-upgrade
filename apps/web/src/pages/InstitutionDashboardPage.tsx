@@ -8,15 +8,18 @@ import { EmptyState } from "../components/EmptyState.tsx";
 import { CreateScholarshipModal } from "../components/CreateScholarshipModal.tsx";
 import { IssueCredentialModal } from "../components/IssueCredentialModal.tsx";
 import { AssignStudentModal } from "../components/AssignStudentModal.tsx";
+import { prepareContractCall, submitContractTx } from "../lib/soroban.ts";
+import { nativeToScVal } from "@stellar/stellar-sdk";
 
 export function InstitutionDashboardPage() {
-  const { address, connect, role, setRole } = useWallet();
+  const { address, connect, role, setRole, signTransaction } = useWallet();
   const [scholarships, setScholarships] = useState<Scholarship[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showCreate, setShowCreate] = useState(false);
   const [issueFor, setIssueFor] = useState<Scholarship | null>(null);
   const [assignFor, setAssignFor] = useState<Scholarship | null>(null);
+  const [registering, setRegistering] = useState(false);
 
   const load = useCallback(async () => {
     if (!address) return;
@@ -40,6 +43,25 @@ export function InstitutionDashboardPage() {
     load();
   }, [address, role, setRole, load]);
 
+  async function handleRegister() {
+    if (!address) return;
+    setRegistering(true);
+    setError(null);
+    try {
+      const unsignedXdr = await prepareContractCall(address, "register_institution", [
+        nativeToScVal(address, { type: "address" }),
+        nativeToScVal("My Institution", { type: "string" }),
+      ]);
+      const signedXdr = await signTransaction(unsignedXdr);
+      await submitContractTx(signedXdr);
+      alert("Successfully registered on-chain!");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to register on-chain");
+    } finally {
+      setRegistering(false);
+    }
+  }
+
   if (!address) {
     return (
       <div className="mx-auto max-w-md px-6 py-24 text-center">
@@ -62,12 +84,21 @@ export function InstitutionDashboardPage() {
           <h1 className="font-display text-3xl font-semibold text-ink">Institution Dashboard</h1>
           <p className="mt-1 font-mono text-xs text-ink/50">{address}</p>
         </div>
-        <button
-          onClick={() => setShowCreate(true)}
-          className="rounded-full bg-institution px-5 py-2.5 font-body text-sm font-semibold text-paper hover:bg-ink"
-        >
-          + Create Scholarship
-        </button>
+        <div className="flex gap-3">
+          <button
+            onClick={handleRegister}
+            disabled={registering}
+            className="rounded-full border border-institution text-institution px-5 py-2.5 font-body text-sm font-semibold hover:bg-institution/10 disabled:opacity-50"
+          >
+            {registering ? "Registering..." : "Register on Blockchain"}
+          </button>
+          <button
+            onClick={() => setShowCreate(true)}
+            className="rounded-full bg-institution px-5 py-2.5 font-body text-sm font-semibold text-paper hover:bg-ink"
+          >
+            + Create Scholarship
+          </button>
+        </div>
       </div>
 
       {loading && <LoadingSpinner label="Loading scholarships" />}
