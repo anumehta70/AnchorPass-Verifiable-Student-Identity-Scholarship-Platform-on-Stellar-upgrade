@@ -11,7 +11,7 @@ A production-ready verifiable credentials platform built on the Stellar network.
 - **Pitch Deck (PPT):** [View Presentation](https://docs.google.com/presentation/d/1BAX3tGBfPcFZj9bBOfQyXoEJcYNgnffi/edit?usp=sharing&ouid=114494973489055894068&rtpof=true&sd=true)
 - **Contract Address (Testnet):** `CABA6ZABNSL3CSMYYO4IJIXTXOMECQKAT2ML5XKNZK32ZFQ4CHFLR4MT`
 - **Google Form Link:** [Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLSddM4svFMkX84UDjpQGhgsL1s67IZUtCYtb2o9sYjg0ewQ-9g/viewform)
-- **Response Sheet:** [Response Sheet Export](https://docs.google.com/spreadsheets/d/1kP9ois02x4WUsM5kdnYJx3IFMasQdSkb_5mZt0_xqeg/edit?usp=sharing)
+- **Response Sheet:** [Response Sheet Link](https://docs.google.com/spreadsheets/d/1kP9ois02x4WUsM5kdnYJx3IFMasQdSkb_5mZt0_xqeg/edit?usp=sharing)
 - **GitHub Repository:** [AnchorPass Source Code](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-upgrade)
 
 ---
@@ -34,7 +34,8 @@ We have successfully onboarded **54 real users** to the AnchorPass platform. Eve
 
 To collect comprehensive product feedback, we utilized a Google Form and aggregated all 54 unique responses into our response sheet.
 
-**🔗 User Database & Feedback Export:** [View Full 54-User Dataset (Google Sheets)](https://docs.google.com/spreadsheets/d/1kP9ois02x4WUsM5kdnYJx3IFMasQdSkb_5mZt0_xqeg/edit?usp=sharing)
+- **Google Form Link:** [Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLSddM4svFMkX84UDjpQGhgsL1s67IZUtCYtb2o9sYjg0ewQ-9g/viewform)
+- **Response Sheet:** [Response Sheet Link](https://docs.google.com/spreadsheets/d/1kP9ois02x4WUsM5kdnYJx3IFMasQdSkb_5mZt0_xqeg/edit?usp=sharing)
 
 ### 👥 Users Onboarded
 
