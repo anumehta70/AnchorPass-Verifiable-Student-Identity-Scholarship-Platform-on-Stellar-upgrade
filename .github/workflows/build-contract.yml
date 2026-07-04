@@ -26,9 +26,7 @@ jobs:
           workspaces: contracts
 
       - name: Install Stellar CLI
-        run: |
-          curl --proto '=https' --tlsv1.2 -lsSf https://install.stellar.org | sh
-          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+        run: cargo install --locked stellar-cli
 
       - name: Build Contract
         run: |
