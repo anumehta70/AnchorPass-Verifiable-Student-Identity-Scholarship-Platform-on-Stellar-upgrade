@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html, body {
+    color-scheme: light dark;
+  }
+  
   ::selection {
     background-color: #c9a227;
     color: #0b0e14;
