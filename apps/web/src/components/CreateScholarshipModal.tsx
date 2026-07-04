@@ -38,9 +38,9 @@ export function CreateScholarshipModal({ institutionWallet, onClose, onCreated }
         [
           nativeToScVal(institutionWallet, { type: "address" }),
           nativeToScVal(title, { type: "string" }),
-          nativeToScVal(amountDrops, { type: "i128" }),
+          nativeToScVal(BigInt(Math.floor(parseFloat(amount) * 1e7)), { type: "i128" }),
           nativeToScVal(Number(totalSeats), { type: "u32" }),
-          nativeToScVal(deadlineSecs, { type: "u64" }),
+          nativeToScVal(BigInt(deadlineSecs), { type: "u64" }),
         ]
       );
 
