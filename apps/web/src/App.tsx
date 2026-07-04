@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Navbar } from "./components/Navbar.tsx";
 import { HomePage } from "./pages/HomePage.tsx";
 import { HowItWorksPage } from "./pages/HowItWorksPage.tsx";
@@ -11,6 +12,7 @@ import { StudentDashboardPage } from "./pages/StudentDashboardPage.tsx";
 import { VerifyCredentialPage } from "./pages/VerifyCredentialPage.tsx";
 import { NotFoundPage } from "./pages/NotFoundPage.tsx";
 import { DirectoryPage } from "./pages/DirectoryPage.tsx";
+import { FAQPage } from "./pages/FAQPage.tsx";
 import { FAQPage } from "./pages/FAQPage.tsx";
 import { OnboardingModal } from "./components/OnboardingModal.tsx";
 
@@ -39,12 +41,14 @@ export default function App() {
           <Route path="/verify/:id" element={<VerifyCredentialPage />} />
           <Route path="/directory" element={<DirectoryPage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route path="/faq" element={<FAQPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
 
       <footer className="mt-20 border-t border-ink/10 px-6 py-10 text-center font-body text-sm text-ink/40">
         <p>
+          <Link to="/faq" className="hover:text-institution mr-4">FAQ</Link>
           <Link to="/faq" className="hover:text-institution mr-4">FAQ</Link>
           AnchorPass · Built on{" "}
           <a
