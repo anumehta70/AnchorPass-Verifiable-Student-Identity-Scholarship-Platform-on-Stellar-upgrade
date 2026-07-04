@@ -99,9 +99,7 @@ export function InstitutionDashboardPage() {
             + Create Scholarship
           </button>
         </div>
-        </div>
       </div>
-
       <div className="mb-8 rounded-xl bg-ink/5 p-5 border border-ink/10">
         <h3 className="font-display font-semibold text-ink">Quick Tutorial</h3>
         <p className="mt-2 font-body text-sm text-ink/70 leading-relaxed">
