@@ -140,6 +140,9 @@ export function VerifyCredentialPage() {
 
             <div className="mt-8 flex flex-col items-center gap-4">
               <QRVerifier verificationUrl={verificationUrl} qrCodeDataUrl={credential.qrCode} />
+              <button onClick={() => window.print()} className="rounded-full bg-ink/5 px-4 py-2 font-mono text-xs font-medium text-ink hover:bg-ink/10 transition-colors">
+                Download as PDF
+              </button>
               <p className="font-mono text-[11px] text-ink/40 text-center">
                 This verification reads directly from the Stellar Testnet — no database involved.
               </p>

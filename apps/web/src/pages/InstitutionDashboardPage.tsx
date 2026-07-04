@@ -99,6 +99,17 @@ export function InstitutionDashboardPage() {
             + Create Scholarship
           </button>
         </div>
+        </div>
+      </div>
+
+      <div className="mb-8 rounded-xl bg-ink/5 p-5 border border-ink/10">
+        <h3 className="font-display font-semibold text-ink">Quick Tutorial</h3>
+        <p className="mt-2 font-body text-sm text-ink/70 leading-relaxed">
+          1. <strong>Register</strong> your institution on the blockchain first.<br/>
+          2. <strong>Create</strong> a new Scholarship Campaign.<br/>
+          3. <strong>Assign</strong> students using their Stellar wallet address.<br/>
+          4. Once assigned, you can <strong>Issue</strong> verifiable credentials directly to their wallets.
+        </p>
       </div>
 
       {loading && <LoadingSpinner label="Loading scholarships" />}
