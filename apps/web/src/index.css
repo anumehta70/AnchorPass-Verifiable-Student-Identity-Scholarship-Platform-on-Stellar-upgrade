@@ -3,8 +3,20 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-ink: #0B0E14;
+    --color-paper: #F7F5F0;
+  }
+  
+  .dark {
+    --color-ink: #F7F5F0;
+    --color-paper: #0B0E14;
+  }
+
   html, body {
     color-scheme: light dark;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
   }
   
   ::selection {

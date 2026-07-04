@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        ink: "#0B0E14",
-        paper: "#F7F5F0",
+        ink: "var(--color-ink)",
+        paper: "var(--color-paper)",
         institution: "#1E3A5F",
         seal: "#C9A227",
         verified: "#3D9970",

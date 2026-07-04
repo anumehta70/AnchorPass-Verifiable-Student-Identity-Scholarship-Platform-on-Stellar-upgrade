@@ -39,7 +39,20 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={() => {
+              document.documentElement.classList.toggle("dark");
+              localStorage.setItem(
+                "theme",
+                document.documentElement.classList.contains("dark") ? "dark" : "light"
+              );
+            }}
+            className="rounded-full p-2 hover:bg-ink/5"
+            aria-label="Toggle dark mode"
+          >
+            🌓
+          </button>
           <WalletConnectButton />
         </div>
 

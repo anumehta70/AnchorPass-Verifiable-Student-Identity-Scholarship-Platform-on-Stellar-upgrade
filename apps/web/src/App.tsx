@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import { Navbar } from "./components/Navbar.tsx";
 import { HomePage } from "./pages/HomePage.tsx";
 import { HowItWorksPage } from "./pages/HowItWorksPage.tsx";
@@ -12,6 +13,14 @@ import { DirectoryPage } from "./pages/DirectoryPage.tsx";
 import { OnboardingModal } from "./components/OnboardingModal.tsx";
 
 export default function App() {
+  useEffect(() => {
+    if (localStorage.getItem("theme") === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-paper text-ink selection:bg-institution/20">
       <Navbar />
