@@ -31,32 +31,41 @@ export async function prepareContractCall(
   // 2. Simulate and prepare the transaction to fill in the resource footprint and exact fees
   let preparedTx = (await server.prepareTransaction(simTx)) as any;
 
-  // 3. Rebuild the final transaction including the payment if provided
-  let finalBuilder = new TransactionBuilder(account, {
-    fee: preparedTx.fee,
-    networkPassphrase: Networks.TESTNET,
-  });
-
+  // 3. If there is a payment, we inject it directly into the XDR to bypass TransactionBuilder type issues
   if (payment) {
-    finalBuilder.addOperation(
-      Operation.payment({
-        destination: payment.destination,
-        asset: Asset.native(),
-        amount: payment.amount,
-      })
-    );
+    // Build a dummy transaction just to easily extract the properly formatted payment xdr.Operation
+    let paymentTx = new TransactionBuilder(account, { fee: "1000", networkPassphrase: Networks.TESTNET })
+      .addOperation(
+        Operation.payment({
+          destination: payment.destination,
+          asset: Asset.native(),
+          amount: payment.amount,
+        })
+      )
+      .setTimeout(30)
+      .build();
+    let paymentXdrOp = paymentTx.toEnvelope().v1().tx().operations()[0];
+
+    // Extract the prepared envelope
+    let envelope = preparedTx.toEnvelope();
+    let v1Tx = envelope.v1().tx();
+    
+    // Add the payment operation to the existing array of operations
+    let ops = v1Tx.operations();
+    ops.unshift(paymentXdrOp); // Put payment first
+    v1Tx.operations(ops);
+    
+    // Increase the fee for the additional operation (100 stroops minimum, we'll add 1000)
+    let currentFee = Number(v1Tx.fee());
+    v1Tx.fee(currentFee + 1000);
+    
+    // Re-wrap the envelope
+    envelope.v1().tx(v1Tx);
+    
+    return envelope.toXDR("base64");
   }
 
-  // Add the prepared Soroban operation
-  finalBuilder.addOperation(preparedTx.operations[0]);
-  
-  if (preparedTx.sorobanData) {
-    finalBuilder.setSorobanData(preparedTx.sorobanData);
-  }
-
-  let finalTx = finalBuilder.setTimeout(30).build();
-
-  return finalTx.toXDR();
+  return preparedTx.toXDR();
 }
 
 export async function submitContractTx(signedXdr: string): Promise<string> {
