@@ -11,6 +11,7 @@ import { FeedbackForm } from "../components/FeedbackForm.tsx";
 export function StudentDashboardPage() {
   const { address, connect, role, setRole } = useWallet();
   const [scholarships, setScholarships] = useState<Scholarship[]>([]);
+  const [search, setSearch] = useState("");
   const [credentials, setCredentials] = useState<Credential[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
