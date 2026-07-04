@@ -9,6 +9,7 @@ const LINKS = [
   { to: "/students", label: "For Students" },
   { to: "/verify", label: "Verify Credential" },
   { to: "/directory", label: "Public Directory" },
+  { to: "#", label: "Community Forum" },
 ];
 
 export function Navbar() {
