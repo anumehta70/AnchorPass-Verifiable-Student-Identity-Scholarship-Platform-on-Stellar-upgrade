@@ -1,6 +1,9 @@
 import { useState, type FormEvent } from "react";
+import { useWallet } from "../hooks/useWallet.tsx";
 import { api, type Scholarship } from "../lib/api.ts";
 import { ErrorAlert } from "./ErrorAlert.tsx";
+import { nativeToScVal } from "@stellar/stellar-sdk";
+import { prepareContractCall, submitContractTx } from "../lib/soroban";
 
 interface Props {
   scholarship: Scholarship;
@@ -9,6 +12,7 @@ interface Props {
 }
 
 export function IssueCredentialModal({ scholarship, institutionWallet, onClose }: Props) {
+  const { signTransaction: _signTransaction } = useWallet();
   const claimedStudents = scholarship.assignments.filter((a) => a.claimed);
   const [studentWallet, setStudentWallet] = useState(claimedStudents[0]?.studentWallet ?? "");
   const [credentialTitle, setCredentialTitle] = useState(`${scholarship.title} — Certificate`);
@@ -29,15 +33,31 @@ export function IssueCredentialModal({ scholarship, institutionWallet, onClose }
         scholarshipId: scholarship.id,
       });
 
-      // On-chain `issue_credential` call would happen here via Freighter,
-      // signing with the institution wallet. Using a placeholder tx/id
-      // until wired to a live deployed contract (see BUILD.md).
+      // 1. Build the Soroban XDR for `issue_credential`
+      const unsignedXdr = await prepareContractCall(
+        institutionWallet,
+        "issue_credential",
+        [
+          nativeToScVal(institutionWallet, { type: "address" }),
+          nativeToScVal(studentWallet, { type: "address" }),
+          nativeToScVal(Number(scholarship.id), { type: "u64" }),
+          nativeToScVal(ipfsHash, { type: "string" }),
+        ]
+      );
+
+      // 2. Have the wallet sign it
+      const signedXdr = await _signTransaction(unsignedXdr);
+
+      // 3. Submit to Soroban RPC
+      const txHash = await submitContractTx(signedXdr);
+
+      // We use the timestamp as the credential ID mock since the exact u64
+      // return isn't easy to unpack without full TS bindings right now.
       const mockContractCredentialId = String(Date.now());
-      const mockTxHash = `pending-${Date.now()}`;
 
       const credential = await api.finalizeCredential({
         contractCredentialId: mockContractCredentialId,
-        transactionHash: mockTxHash,
+        transactionHash: txHash,
         title: credentialTitle,
         studentWallet,
         institutionWallet,
