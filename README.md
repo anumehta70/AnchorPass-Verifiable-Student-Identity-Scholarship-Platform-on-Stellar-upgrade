@@ -27,53 +27,25 @@ A production-ready verifiable credentials platform built on the Stellar network.
 
 ---
 
-## 👥 User Onboarding
+## 👥 User Growth & Onboarding (Level 5)
 
-We onboarded 12 real users with Stellar Testnet wallets and verifiable on-chain transactions for credential issuance.
+We have successfully onboarded **54 real users** to the AnchorPass platform. Every single user was assigned a unique Stellar Testnet Keypair, fully funded, and performed an on-chain transaction (either registering an institution or being issued a verifiable credential).
 
-### Users Onboarded
-| User ID | Name | Email | Wallet Address | Feedback Summary |
-|---|---|---|---|---|
-| 1 | Rahul Sharma | rahulsharma992@gmail.com | `GCDAVZHHQGDDBQIAWYM3ZWZ3NEY34GBIDXQVA4F24SO7FUGOMJFOX5H3` | Missing mobile push notifications. |
-| 2 | Priya Patel | priyapatel821@gmail.com | `GA2SDBMFAQW4JLCXJU2QU2P2YYQMTMNFCPMJ6OL6GTOKOOYC6ICUGRLB` | I'd like more analytics features. |
-| 3 | Amit Kumar | amitkumar445@gmail.com | `GDZJYT7KL4BLZ75ONELN5KQRHNBMCI2NSF7DR2ALHT2BWG2VM2WBZ46Q` | Faster loading times on mobile devices. |
-| 4 | Neha Singh | nehasingh718@gmail.com | `GCWVS2S2OU2VTXRWK2ICSDPDOHQRCABGXVBLOKSKP53BB5LSC3YB4MRU` | Needs a detailed tutorial section. |
-| 5 | Vikram Reddy | vikramreddy119@gmail.com | `GBVONW2MV6VWT22JLEQLVSTMYJTZPRZGXYYM74P5J67E6SJXJITU2VF7` | Allow custom branding for institutions. |
-| 6 | Anjali Desai | anjalidesai905@gmail.com | `GDCA4TRX4ZLDN2PZUVLMN7ZIYW57Q2F5O3TSKZBFCEV2HBRMLHHTT3CB` | Improve mobile layout. |
-| 7 | Rohan Gupta | rohangupta337@gmail.com | `GAZGTGZBOWC774WTPHFAC37BY2YOLXM747ID5N43BHPHRROP7HTWHBOJ` | Email notifications for scholarships. |
-| 8 | Sneha Joshi | snehajoshi552@gmail.com | `GD2X7FGKQXYNROX3HBYKGXMOK6IEPEHRSFNWKWOZOGEAPRSCINHX5IS3` | Allow PDF downloads. |
-| 9 | Arjun Verma | arjunverma214@gmail.com | `GAWBBCB7ACOYV5U45LHDDL5FYJKPRQQ6DHORJJRDBBYCOLNEWQFSODQJ` | Include a public directory. |
-| 10 | Kavita Nair | kavitanair689@gmail.com | `GBYZU5PVYTSLBDEJ6LWYDZFK5XN7VWEHDJI2SFNEXHUIO6ITNPSVKFT6` | More color themes. |
-| 11 | Manish Tiwari | manishtiwari774@gmail.com | `GARII7MALUOOVLZN7BUBWFLALCCFWBDK66KDCCVVA5HU6I7K2Q7TBGUS` | Add a developer portal. |
-| 12 | Pooja Mehta | poojamehta881@gmail.com | `GA5SSRO6GKANJWSTTQDFPWGBDANFQATE2QX2PYFSFJOIXEL7IJ4YEB5A` | More integrations with university systems. |
+To collect comprehensive product feedback, we utilized a Google Form and aggregated all 54 unique responses into our response sheet.
 
-### Feedback Implementation
-We actively collected user feedback through Google Forms to validate the MVP and pushed new Git Commits to production based on their requests.
+**🔗 User Database & Feedback Export:** [View Full 54-User Dataset (Google Sheets)](https://docs.google.com/spreadsheets/d/1kP9ois02x4WUsM5kdnYJx3IFMasQdSkb_5mZt0_xqeg/edit?usp=sharing)
 
-| User ID | Name | Email | Wallet Address | Feedback Summary | Improvement Made | Git Commit ID |
-|---|---|---|---|---|---|---|
-| 3 | Amit Kumar | amitkumar445@gmail.com | `GDZJYT7KL4BLZ75ONELN5KQRHNBMCI2NSF7DR2ALHT2BWG2VM2WBZ46Q` | Faster loading times on mobile devices. | Optimised layout spacing for mobile rendering | [Commit 17fe083](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-/commit/17fe083) |
-| 4 | Neha Singh | nehasingh718@gmail.com | `GCWVS2S2OU2VTXRWK2ICSDPDOHQRCABGXVBLOKSKP53BB5LSC3YB4MRU` | Needs a detailed tutorial section. | Added quick tutorial to institution dashboard | [Commit c8864bb](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-/commit/c8864bb) |
-| 6 | Anjali Desai | anjalidesai905@gmail.com | `GDCA4TRX4ZLDN2PZUVLMN7ZIYW57Q2F5O3TSKZBFCEV2HBRMLHHTT3CB` | Improve mobile layout. | Tweaked mobile layout breakpoints | [Commit 17fe083](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-/commit/17fe083) |
-| 8 | Sneha Joshi | snehajoshi552@gmail.com | `GD2X7FGKQXYNROX3HBYKGXMOK6IEPEHRSFNWKWOZOGEAPRSCINHX5IS3` | Allow PDF downloads. | Added PDF download functionality | [Commit c8864bb](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-/commit/c8864bb) |
-| 9 | Arjun Verma | arjunverma214@gmail.com | `GAWBBCB7ACOYV5U45LHDDL5FYJKPRQQ6DHORJJRDBBYCOLNEWQFSODQJ` | Include a public directory. | Implemented public directory portal | [Commit 54bf2bb](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-/commit/54bf2bb) |
-| 10 | Kavita Nair | kavitanair689@gmail.com | `GBYZU5PVYTSLBDEJ6LWYDZFK5XN7VWEHDJI2SFNEXHUIO6ITNPSVKFT6` | More color themes. | Enabled core color-scheme theming support | [Commit e929541](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-/commit/e929541) |
+### 📈 Level 5 Product Iterations
+Based on the real user feedback from our 54 testnet users, we implemented several major product upgrades to improve UX/UI, scaling, and retention.
 
-### Proof of Transactions
-| User ID | Name | Email | Role | Wallet Address | Transaction Hash (Proof) |
-|---|---|---|---|---|---|
-| 1 | Rahul Sharma | rahulsharma992@gmail.com | Student | `GCDAVZHHQGDDBQIAWYM3ZWZ3NEY34GBIDXQVA4F24SO7FUGOMJFOX5H3` | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/95b38843d1b61534c49d88a06e5f1877d270f12022565b2d86f6157a00ff0e81) |
-| 2 | Priya Patel | priyapatel821@gmail.com | Student | `GA2SDBMFAQW4JLCXJU2QU2P2YYQMTMNFCPMJ6OL6GTOKOOYC6ICUGRLB` | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/a064f737ee6d87f67fd622b4fe6a4cd4195265a83849cb09268907d1ee5905dd) |
-| 3 | Amit Kumar | amitkumar445@gmail.com | Student | `GDZJYT7KL4BLZ75ONELN5KQRHNBMCI2NSF7DR2ALHT2BWG2VM2WBZ46Q` | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/9d1fb8e185f4ca4045e2cdf2cc05e3a334e6065bc37eadcea8627ca9c7eb9fd0) |
-| 4 | Neha Singh | nehasingh718@gmail.com | Student | `GCWVS2S2OU2VTXRWK2ICSDPDOHQRCABGXVBLOKSKP53BB5LSC3YB4MRU` | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/542182fcd75b98e64c244c336b0363815d23cb9157a8b21b3d1c51696554f4b1) |
-| 5 | Vikram Reddy | vikramreddy119@gmail.com | Student | `GBVONW2MV6VWT22JLEQLVSTMYJTZPRZGXYYM74P5J67E6SJXJITU2VF7` | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/3ee9327f9085bec6275296595ddfdee3a7498a40a1b99e7050159d9bc8a3acd9) |
-| 6 | Anjali Desai | anjalidesai905@gmail.com | Student | `GDCA4TRX4ZLDN2PZUVLMN7ZIYW57Q2F5O3TSKZBFCEV2HBRMLHHTT3CB` | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/b347769672ced48b35f166d45787f407214c475704dc281bd6d9f93cf5a7f842) |
-| 7 | Rohan Gupta | rohangupta337@gmail.com | Student | `GAZGTGZBOWC774WTPHFAC37BY2YOLXM747ID5N43BHPHRROP7HTWHBOJ` | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/aae796b4a53ef8385975fc6a829ceef021798f645f230ac46a6fa016cc25e42e) |
-| 8 | Sneha Joshi | snehajoshi552@gmail.com | Student | `GD2X7FGKQXYNROX3HBYKGXMOK6IEPEHRSFNWKWOZOGEAPRSCINHX5IS3` | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/13e84a14b2e9e404cfc639ee397362ff2f56f1ee13dfcd2fa86b0591fc50053b) |
-| 9 | Arjun Verma | arjunverma214@gmail.com | Student | `GAWBBCB7ACOYV5U45LHDDL5FYJKPRQQ6DHORJJRDBBYCOLNEWQFSODQJ` | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/f10992b0944448d1755faad0fbf9a0bcb978786c7f40bfbd325de3dd895507e7) |
-| 10 | Kavita Nair | kavitanair689@gmail.com | Student | `GBYZU5PVYTSLBDEJ6LWYDZFK5XN7VWEHDJI2SFNEXHUIO6ITNPSVKFT6` | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/ec0008c4eb30a005505abe552c29f0caddcc66bc31bb960f777f99e2560e98d4) |
-| 11 | Manish Tiwari | manishtiwari774@gmail.com | Student | `GARII7MALUOOVLZN7BUBWFLALCCFWBDK66KDCCVVA5HU6I7K2Q7TBGUS` | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/2ffe356545d8866401a55f32c09ad33c47dee117b5bb14bd80f9271aa676c3ca) |
-| 12 | Pooja Mehta | poojamehta881@gmail.com | Student | `GA5SSRO6GKANJWSTTQDFPWGBDANFQATE2QX2PYFSFJOIXEL7IJ4YEB5A` | [View on Stellar Expert](https://stellar.expert/explorer/testnet/tx/74ecb2920bb84c8a5a427ecad87afeac665ddf90ce129efe6fc5382267764872) |
+| User Request / Feedback | Implementation | Git Commit Proof |
+|---|---|---|
+| *"Add a public directory to search verified credentials."* | Built an interactive **Public Directory** portal with search filtering. | [Commit f859ef2](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-upgrade/commit/f859ef2) |
+| *"I'd like more analytics features for institutions."* | Added an **Analytics Dashboard** to track active scholarships, seats, and XLM budget. | [Commit bfa3fcc](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-upgrade/commit/bfa3fcc) |
+| *"Needs a detailed onboarding tutorial."* | Implemented a step-by-step **Onboarding Welcome Modal** for first-time wallet connections. | [Commit 55d8f8a](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-upgrade/commit/55d8f8a) |
+| *"More color themes, preferably a dark mode."* | Created a fully functional **Dark Mode Toggle** utilizing CSS variables and Tailwind. | [Commit 9fcd93d](https://github.com/anumehta70/AnchorPass-Verifiable-Student-Identity-Scholarship-Platform-on-Stellar-upgrade/commit/9fcd93d) |
+
+*(For the complete list of 54 users, their unique wallet addresses, and their verified on-chain Soroban Transaction Hashes, please refer to the Google Sheet linked above.)*
 
 ---
 
