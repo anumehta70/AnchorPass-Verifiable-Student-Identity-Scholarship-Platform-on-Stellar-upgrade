@@ -47,7 +47,8 @@ jobs:
       - name: Deploy to Testnet
         run: |
           stellar keys generate --network testnet ci-deployer
-          CONTRACT_ID=$(stellar contract deploy --wasm contracts/target/wasm32-unknown-unknown/release/anchorpass.wasm --network testnet --source ci-deployer)
+          WASM_FILE=$(find contracts/target/wasm32v1-none/release -name "*.wasm" | head -n 1)
+          CONTRACT_ID=$(stellar contract deploy --wasm $WASM_FILE --network testnet --source ci-deployer)
           echo "==========================================="
           echo "🚀 CONTRACT DEPLOYED SUCCESSFULLY 🚀"
           echo "Your Contract ID is: $CONTRACT_ID"
